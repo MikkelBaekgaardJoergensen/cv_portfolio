@@ -1,0 +1,26 @@
+@import "./var_colors";
+@import "./var_borders";
+@import "./var_typography";
+@import "./var_spacing";
+
+
+header {
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    span {
+        padding-inline: $spacing-lg;
+    }
+    
+    width: 40%;
+    background-color: $primary-bg;
+    color: $primary-text;
+    padding: 10px;
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
