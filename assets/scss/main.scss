@@ -1,26 +1,87 @@
-@import "./var_colors";
-@import "./var_borders";
-@import "./var_typography";
-@import "./var_spacing";
+@use "./var_colors" as *;
+@use "./var_borders" as *;
+@use "./var_typography" as *;
+@use "./var_spacing" as *;
 
+* {
+    border: 1px solid black;
+}
+body {
+    font-size: 16px;
+}
 
-header {
+// *** Mixins and general styles ***
+@mixin flex-center($wrap: nowrap) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    @include flex-center();
     nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    span {
-        padding-inline: $spacing-lg;
-    }
-    
-    width: 40%;
-    background-color: $primary-bg;
-    color: $primary-text;
-    padding: 10px;
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flex-center();
+        border-radius: 10px;
+        width: 70%;
+        padding: 2px 10px 2px 10px;
+        margin: 5px;
+        span {
+            @include flex-center();
+            width: 100%;
+            border-radius: 10px;
+
+            .router-link-exact-active {
+                font-weight: bold;
+                color: red;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+                transition: background-color 0.3s ease, color 0.3s ease;
+                
+                &:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+                }
+            }
+        }
     }
 }
+
+
+// *** Breakpoints ***
+@media (min-width: 640px) {
+    body {
+        font-size: 17px;
+    }
+    header {
+        nav {
+            width: 60%;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+    header {
+        nav {
+            width: 50%;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        font-size: 19px;
+    }
+    header {
+        nav {
+            width: 40%;
+        }
+    }
+}
+
+  
+  
